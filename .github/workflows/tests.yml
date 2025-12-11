@@ -30,9 +30,9 @@ jobs:
           pip install pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Add src to PYTHONPATH
+      - name: Add project root to PYTHONPATH
         run: |
-          echo "PYTHONPATH=$(pwd)/src" >> $GITHUB_ENV
+          echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
       - name: Run pytest
-        run: pytest tests/ -v
+        run: pytest -q
